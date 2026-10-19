@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#087f5b" />
+  <title>HomeEcart — किराना ऑनलाइन</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="HomeEcart Home">
+      <span class="brand-mark">H</span><span>Home<span class="brand-green">Ecart</span><small>आपकी अपनी ऑनलाइन दुकान</small></span>
+    </a>
+    <button id="cartJump" class="cart-pill" type="button">🛒 कार्ट <b id="cartCount">0</b></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">आपकी रोज़मर्रा की ज़रूरत</span>
+        <h1>किराना खरीदना अब <em>आसान</em></h1>
+        <p>अपनी पसंद का सामान चुनें और घर बैठे ऑर्डर भेजें।</p>
+        <a class="hero-cta" href="#products">सामान देखें ↓</a>
+      </div>
+      <div class="hero-art" aria-hidden="true"><span>🛍️</span><i>🥫</i><b>🥦</b><strong>🍚</strong></div>
+    </section>
+
+    <section class="controls section-wrap">
+      <div class="section-heading">
+        <div><span class="eyebrow">HOMEECART STORE</span><h2>सामान चुनें</h2></div>
+        <label class="customer-select">आप खरीद रहे हैं
+          <select id="customerType" aria-label="ग्राहक प्रकार">
+            <option value="retail">आम ग्राहक (रिटेल)</option>
+            <option value="wholesale">दुकानदार (होलसेल डेमो)</option>
+          </select>
+        </label>
+      </div>
+      <div class="search-row">
+        <input id="searchInput" type="search" placeholder="🔎 सामान खोजें, जैसे आटा, चावल..." />
+      </div>
+      <nav id="categoryList" class="categories" aria-label="सामान की कैटेगरी"></nav>
+    </section>
+
+    <section id="products" class="section-wrap product-section">
+      <div class="product-heading"><h2 id="productTitle">लोकप्रिय सामान</h2><span id="resultCount"></span></div>
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+
+    <section id="cartSection" class="section-wrap cart-section">
+      <div class="section-heading"><div><span class="eyebrow">YOUR BASKET</span><h2>आपका कार्ट</h2></div><button id="clearCart" class="text-button" type="button">कार्ट खाली करें</button></div>
+      <div id="cartItems" class="cart-items"><p class="empty-cart">आपका कार्ट अभी खाली है। सामान जोड़ने के लिए ऊपर जाएँ।</p></div>
+      <div class="cart-total"><span>कुल रकम</span><strong id="cartTotal">₹0</strong></div>
+
+      <form id="checkoutForm" class="checkout">
+        <h3>ऑर्डर की जानकारी</h3>
+        <div class="form-grid">
+          <label>आपका नाम<input name="name" required placeholder="पूरा नाम" /></label>
+          <label>मोबाइल नंबर<input name="phone" required inputmode="tel" pattern="[0-9+\-\s]{10,15}" placeholder="10 अंकों का नंबर" /></label>
+          <label class="full">डिलीवरी का पता<textarea name="address" required rows="3" placeholder="मोहल्ला, शहर, पिन कोड"></textarea></label>
+        </div>
+        <label class="payment-label">पेमेंट का तरीका
+          <select name="payment"><option>डिलीवरी पर भुगतान (COD — पुष्टि करें)</option><option>UPI / ऑनलाइन पेमेंट बाद में तय करें</option></select>
+        </label>
+        <button class="primary-button order-button" type="submit">WhatsApp पर ऑर्डर भेजें ↗</button>
+        <p class="fine-print">यह शुरुआती डेमो है। ऑर्डर भेजने से पहले WhatsApp में संदेश जाँच लें। ऑनलाइन पेमेंट अभी सक्रिय नहीं है।</p>
+      </form>
+    </section>
+  </main>
+
+  <footer><div class="footer-brand">Home<span>Ecart</span></div><p>आपकी रोज़मर्रा की खरीदारी, आसान तरीके से।</p><small>डेमो वेबसाइट • कीमतें उदाहरण के लिए हैं</small></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
